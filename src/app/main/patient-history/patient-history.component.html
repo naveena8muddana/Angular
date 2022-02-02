@@ -1,0 +1,101 @@
+<!-- <div class="patient-class">
+    <h4><i nz-icon nzType="user" nzTheme="outline" class="user-icon"></i>{{patientData.name | titlecase}} History</h4>
+</div>
+<div class="row">
+    <form [formGroup]="historyForm" autocomplete="off">
+        <h6 style="font-size: medium;padding: 10px;">Basic stats</h6>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group"
+                    [ngClass]="((historyForm.controls.height.touched || submitted) && historyForm.controls.height.errors?.required) ? 'has-danger':''">
+                    <label>*Height (cm):&nbsp;</label>
+                    <input type="text" name="height" formControlName="height" (keydown)="calculateHeightWeight()">
+                    <div class="error-msg" style="padding-left: 83px;"
+                        *ngIf="((historyForm.controls.height.dirty || historyForm.controls.height.touched || submitted) && historyForm.controls.height.errors?.required)">
+                        Please enter height
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group"
+                    [ngClass]="((historyForm.controls.weight.touched || submitted) && historyForm.controls.weight.errors?.required) ? 'has-danger':''">
+                    <label>*Weight (kg):&nbsp;</label>
+                    <input type="text" name="weight" formControlName="weight" (keydown)="calculateHeightWeight()">
+                    <div class="error-msg" style="padding-left: 83px;"
+                        *ngIf="((historyForm.controls.weight.dirty || historyForm.controls.weight.touched || submitted) && historyForm.controls.weight.errors?.required)">
+                        Please enter weight
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label>Body Mass Index:</label>
+                    {{isNaN(historyForm.controls.weight.value / heightM2) ? 0 : ((historyForm.controls.weight.value
+                    /
+                    heightM2).toFixed(1))}}
+
+                    {{bmi}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>*Smoking</label>
+            <br>
+            <div class="form-radio">
+                <label *ngFor="let i of smokingArr">
+                    <input [id]="i.value" type="radio" [value]="i.value" name="smoking" formControlName="smoking">
+                    <span class="gender">{{i.name}}</span>
+                </label>
+            </div>
+            <div class="error-msg" *ngIf="submitted && (historyForm.controls.smoking.errors?.required)">
+                Please select any one of those
+            </div>
+        </div>
+        <div class="row">
+            <label>*Alcohol Drinking</label>
+            <br>
+            <div class="form-radio">
+                <label *ngFor="let i of drinkingArr">
+                    <input [id]="i.value" type="radio" [value]="i.value" name="drinking" formControlName="drinking">
+                    <span class="gender">{{i.name}}</span>
+                </label>
+            </div>
+            <div class="error-msg" *ngIf="(submitted && (historyForm.controls.drinking.errors?.required))">
+                Please select any one of those
+            </div>
+        </div>
+        <div class="row">
+            <label>*Drug Usage</label>
+            <br>
+            <div class="form-radio">
+                <label formArrayName="drugsArr" *ngFor="let drug of patientsFormArray.controls; let i = index">
+                    <input type="checkbox" [formControlName]="i" [id]="drugDataArr[i].name"
+                        (change)="changeDrugError()">
+                    {{drugDataArr[i].name}}
+                </label>
+            </div>
+            <div class="error-msg" *ngIf="(selectedDrugIds?.length==0)">
+                Please select any one of those
+            </div>
+        </div>
+        <div class="row">
+            <label>*Surgeries</label>
+            <br>
+            <div class="form-radio">
+                <label formArrayName="surgeryArr" *ngFor="let surgery of surgeryFormArray.controls; let k = index">
+                    <input type="checkbox" [id]="surgeryDataArr[k].value" [formControlName]="k"
+                        (change)="changeSurgeryError()">
+                    {{surgeryDataArr[k].name}}
+                </label>
+            </div>
+            <div class="error-msg" *ngIf="(selectedSurgeryIds?.length==0)">
+                Please select any one of those
+            </div>
+        </div>
+    </form>
+    <div style="padding-left: 78%;padding-bottom: 2%;">
+        <button type="button" class="save" (click)="savePatientHistory()">Save</button>
+        <button type="button" nz-button nzType="secondary" [routerLink]="['/main/patient-list']"
+            routerLinkActive="router-link-active">Back to Dashboard</button>
+    </div>
+</div> -->

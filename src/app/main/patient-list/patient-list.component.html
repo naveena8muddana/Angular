@@ -1,0 +1,12 @@
+<h2 class="app">Patients List</h2>
+<div>
+    <button type="button" class="patient-button" (click)="openPatientModal()"> <i nz-icon nzType="plus"
+            nzTheme="outline" class="icon-list"></i>Add
+        Patient</button>
+</div><br>
+<div class="ag-grid-table">
+    <ag-grid-angular style="width: 700px; height: 400px;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="columnDefs" [overlayLoadingTemplate]="loadingTemplate"
+        [overlayNoRowsTemplate]="overlayNoRowsTemplate" [frameworkComponents]="frameworkComponents">
+    </ag-grid-angular>
+</div>

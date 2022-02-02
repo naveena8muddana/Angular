@@ -1,0 +1,14 @@
+<div class="modal-header">
+    <i nz-icon nzType="delete" nzTheme="outline" class="icon"></i>
+    <h4 class="modal-title pull-left">Delete Patient</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <p>Are you sure you want to delete <strong>{{data.name}}</strong> from the list of patients ?</p>
+</div>
+<div class="modal-footer">
+    <button type="button" nz-button nzType="primary" nzDanger (click)="deletePatient()">Yes</button>
+    <button type="button" (click)="modalRef.hide()" nz-button nzType="secondary">Cancel</button>
+</div>

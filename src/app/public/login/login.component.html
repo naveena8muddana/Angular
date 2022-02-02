@@ -1,0 +1,29 @@
+<h2 class="app">Hospital-Management</h2>
+<div class="app">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" autocomplete="off">
+        <div class="form-group"
+            [ngClass]="((loginForm.controls.email.touched || submitted) && loginForm.controls.email.errors?.required) ? 'has-danger':''">
+            <label>Email</label>
+            <input type="text" name="email" placeholder="Enter Email" formControlName="email">
+            <div class="error-msg"
+                *ngIf="((loginForm.controls.email.dirty || loginForm.controls.email.touched || submitted) && loginForm.controls.email.errors?.required)">
+                Please enter email
+            </div>
+            <div class="error-msg"
+                *ngIf="(loginForm.controls.email.touched || submitted) && loginForm.controls.email.errors?.invalidInput">
+                Please enter valid email
+            </div>
+        </div>
+        <div class="form-group"
+            [ngClass]="((loginForm.controls.password.touched || submitted) && loginForm.controls.password.errors?.required) ? 'has-danger':''">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter Password" formControlName="password">
+            <div class="error-msg"
+                *ngIf="((loginForm.controls.password.dirty || loginForm.controls.password.touched || submitted) && loginForm.controls.password.errors?.required)">
+                Please enter password
+            </div>
+        </div>
+        <button type="button" (click)="doLogin()" nz-button nzType="primary">Login</button>
+    </form>
+</div>

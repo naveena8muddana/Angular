@@ -1,0 +1,66 @@
+<div class="modal-header">
+    <i nz-icon nzType="plus" class="icon" nzTheme="outline" *ngIf="!data.id"></i><i nz-icon class="icon" nzType="edit"
+        nzTheme="outline" *ngIf="data.id"></i>
+    <h4 class="modal-title pull-left">{{data.id ? 'Edit' : 'Add'}} Patient</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="patientForm" autocomplete="off">
+        <label>*Name</label>
+        <div class="form-group"
+            [ngClass]="((patientForm.controls.name.touched || submitted) && patientForm.controls.name.errors?.required) ? 'has-danger':''">
+            <input style="width: 472px;" type="text" name="name" placeholder="Enter Name" formControlName="name">
+            <p class="error-msg"
+                *ngIf="((patientForm.controls.name.dirty || patientForm.controls.name.touched || submitted) && patientForm.controls.name.errors?.required)">
+                Please enter name
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <label>*Age</label>
+                <div class="form-group"
+                    [ngClass]="((patientForm.controls.age.touched || submitted) && patientForm.controls.age.errors?.required) ? 'has-danger':''">
+                    <input type="text" name="age" placeholder="Enter Age" formControlName="age">
+                    <div class="error-msg"
+                        *ngIf="((patientForm.controls.age.dirty || patientForm.controls.age.touched || submitted) && patientForm.controls.age.errors?.required)">
+                        Please enter age
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <label>Sex</label>
+                <div class="form-radio">
+                    <label>
+                        <input id="Male" type="radio" value="Male" name="sex" formControlName="sex">
+                        <span class="gender">Male</span>
+                    </label>
+                    <label>
+                        <input id="Female" type="radio" value="Female" name="sex" formControlName="sex">
+                        <span class="gender">Female</span>
+                    </label>
+                    <label>
+                        <input id="Undisclosed" type="radio" value="Undisclosed" name="sex" formControlName="sex">
+                        <span class="gender">Undisclosed</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <label>*Check-in Date</label>
+        <div class="form-group"
+            [ngClass]="((patientForm.controls.checkIn.touched || submitted) && patientForm.controls.checkIn.errors?.required) ? 'has-danger':''">
+            <input type="text" style="width: 472px;" name="checkIn" placeholder="Select Check-in Date" bsDatepicker
+                formControlName="checkIn" [maxDate]="today">
+            <i nz-icon nzType="calendar" nzTheme="outline" class="calendar"></i>
+            <p class="error-msg"
+                *ngIf="((patientForm.controls.checkIn.dirty || patientForm.controls.checkIn.touched || submitted) && patientForm.controls.checkIn.errors?.required)">
+                Please select check-in date
+            </p>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" (click)="addPatient()" nz-button nzType="primary">Save</button>
+    <button type="button" (click)="modalRef.hide()" nz-button nzType="secondary">Cancel</button>
+</div>
