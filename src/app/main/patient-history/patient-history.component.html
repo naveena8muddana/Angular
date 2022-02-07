@@ -1,8 +1,9 @@
-<!-- <div class="patient-class">
+<div class="patient-class">
     <h4><i nz-icon nzType="user" nzTheme="outline" class="user-icon"></i>{{patientData.name | titlecase}} History</h4>
 </div>
 <div class="row">
     <form [formGroup]="historyForm" autocomplete="off">
+        <label>Profile Photo</label>
         <h6 style="font-size: medium;padding: 10px;">Basic stats</h6>
         <div class="row">
             <div class="col-md-4">
@@ -41,7 +42,7 @@
         <div class="row">
             <label>*Smoking</label>
             <br>
-            <div class="form-radio">
+            <div class="form-radio col-md-6">
                 <label *ngFor="let i of smokingArr">
                     <input [id]="i.value" type="radio" [value]="i.value" name="smoking" formControlName="smoking">
                     <span class="gender">{{i.name}}</span>
@@ -98,4 +99,4 @@
         <button type="button" nz-button nzType="secondary" [routerLink]="['/main/patient-list']"
             routerLinkActive="router-link-active">Back to Dashboard</button>
     </div>
-</div> -->
+</div>
